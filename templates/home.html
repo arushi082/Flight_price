@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Google fonts : Rubik 400:500:700-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome: to add icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+    <!-- bootstarp link: commented -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+
+    <!-- main css file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+    <title>Flight Price Prediction</title>
+  </head>
+  <body>
+    <nav class="nav">
+      <h1><a href="/">FLIGHT PRICE <i class="fas fa-plane-departure"></i></a></h1>
+    </nav>
+    <main>
+      <!-- output of Prediction -->
+      <div class="output">
+        <h3>{{ prediction_text }}</h3>
+      </div>
+
+      <!-- form:: main content -->
+      <form action="\predict" method="post" class="form container grid">
+        <!-- Departure -->
+        <h2 class="form__head">Predict Price of your flights</h2>
+        <div class="">
+          <label for="Dep_Time">Departure Date</label>
+          <input type="date" name="Dep_Time" id="Dep_Time" required="required">
+        </div>
+
+        <!-- Arrival -->
+        <div class="">
+          <label for="Arrival_Time">Arrival Date</label>
+          <input type="date" name="Arrival_Time" id="Arrival_Time" required="required">
+        </div>
+
+        <!-- Source -->
+        <div class="">
+          <label for="Source">Source</label>
+          <select name="Source" id="Source" required="required">
+              <option value="Delhi">Delhi</option>
+              <option value="Kolkata">Kolkata</option>
+              <option value="Mumbai">Mumbai</option>
+              <option value="Chennai">Chennai</option>
+          </select>
+        </div>
+
+        <!-- Destination -->
+        <div class="">
+          <label for="Destination">Destination</label>
+          <select name="Destination" id="Destination" required="required">
+              <option value="Cochin">Cochin</option>
+              <option value="Delhi">Delhi</option>
+              <option value="New Delhi">New Delhi</option>
+              <option value="Hyderabad">Hyderabad</option>
+              <option value="Kolkata">Kolkata</option>
+          </select>
+        </div>
+
+        <!-- Total Stops -->
+        <div class="">
+          <label for="stops">Stopage</label>
+          <select name="stops" id="stops" required="required">
+              <option value="0">Non-Stop</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+          </select>
+        </div>
+
+        <!-- Airline -->
+        <div class="">
+          <label for="airline">Which Airline you want to travel?</label>
+          <select name="airline" id="airline" required="required">
+              <option value="Jet Airways">Jet Airways</option>
+              <option value="IndiGo">IndiGo</option>
+              <option value="Air India">Air India</option>
+              <option value="Multiple carriers">Multiple carriers</option>
+              <option value="SpiceJet">SpiceJet</option>
+              <option value="Vistara">Vistara</option>
+              <option value="Air Asia">Air Asia</option>
+              <option value="GoAir">GoAir</option>
+              <option value="Multiple carriers Premium economy">Multiple carriers Premium economy
+              </option>
+              <option value="Jet Airways Business">Jet Airways Business</option>
+              <option value="Vistara Premium economy">Vistara Premium economy</option>
+              <option value="Trujet">Trujet</option>
+          </select>
+        </div>
+
+        <input type="submit" value="Submit" class="btn btn--grid">
+      </form>
+
+
+    </main>
+  </body>
+</html>
